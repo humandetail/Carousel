@@ -51,7 +51,6 @@ const devConfig = {
               hmr: process.env.NODE_ENV === 'development',
             },
           },
-          'style-loader',
           'css-loader',
           'postcss-loader',
           'sass-loader'
@@ -83,6 +82,7 @@ const devConfig = {
     new HTMLWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
+      inject: true,
       chunksSortMode: 'manual',
       excludeChunks: ['node_modules'],
     	chunks: ['index'],
