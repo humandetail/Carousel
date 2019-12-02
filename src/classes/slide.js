@@ -1,16 +1,10 @@
-class Slide {
+import { Carousel } from './carousel';
+
+class Slide extends Carousel {
   constructor ($, options) {
-    this.$dom = $(options.dom);
-    this.$list = this.$dom.children('.carousel-list');
-    this.$items = this.$list.children('.carousel-item');
-    this.$indicator = this.$dom.children('.carousel-indicator');
-    this.$indicatorItems = this.$indicator.children('.carousel-indicator-item');
+    super($, options);
 
     this.carItemWidth = this.$dom.width();
-
-    this.speed = options.speed || 3000;
-    this.curIndex = 0;
-    this.timer = null;
 
     this.init();
   }
@@ -35,27 +29,6 @@ class Slide {
     })
   }
 
-  bindEvent () {
-    this.$dom.on('mouseover', { event: 'in' }, $.proxy(this.mouseInOut, this));
-    this.$dom.on('mouseout', { event: 'out' }, $.proxy(this.mouseInOut, this));
-    this.$dom.on('click', $.proxy(this.handleClick, this));
-  }
-
-  mouseInOut (e) {
-    const event = e.data.event;
-
-    switch (event) {
-      case 'in':
-        clearTimeout(this.timer);
-        break;
-      case 'out':
-        this.autoPlay();
-        break;
-      default:
-        break;
-    }
-  }
-
   handleClick (ev) {
     const e = ev || window.event,
           tar = e.target || e.srcElement,
@@ -75,14 +48,11 @@ class Slide {
     }
   }
 
-  autoPlay () {
-    this.timer = setInterval($.proxy(this.run, this), this.speed);
-  }
-
   run () {
     this._slideAction('next');
   }
 
+  // 设置slide切换的方式
   _slideAction (dir) {
     let t = null;
     switch (dir) {
@@ -122,7 +92,7 @@ class Slide {
     }
   }
 
-  // 
+  // 切换图片
   _slideChange (index, dir, isInitial) {
     const itemWidth = this.carItemWidth,
           itemsLength = this.$items.length;
@@ -132,11 +102,6 @@ class Slide {
     });
 
     this._setIndicator((index === itemsLength || index === 0) ? 0 : index);
-  }
-
-  _setIndicator (index) {
-    this.$indicatorItems.eq(index).addClass('active')
-                        .siblings('.carousel-indicator-item').removeClass('active');
   }
 }
 

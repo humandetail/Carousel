@@ -1,0 +1,85 @@
+.carousel {
+  position: relative;
+  width: 590px;
+  height: 470px;
+  margin: 0 auto;
+  overflow: hidden; }
+  .carousel ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+  .carousel a {
+    text-decoration: none; }
+  .carousel img {
+    width: 100%; }
+  .carousel button {
+    outline: none;
+    border: none; }
+  .carousel .carousel-control {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    width: 24px;
+    height: 40px;
+    margin-top: -20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    background-size: 15px 15px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer; }
+    .carousel .carousel-control:hover {
+      background-color: rgba(0, 0, 0, 0.4); }
+    .carousel .carousel-control.carousel-control-prev {
+      left: 0;
+      background-image: url(/img/icons/prev.png); }
+    .carousel .carousel-control.carousel-control-next {
+      right: 0;
+      background-image: url(/img/icons/next.png); }
+  .carousel .carousel-indicator {
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+    padding: 5px 10px;
+    font-size: 0;
+    z-index: 2; }
+    .carousel .carousel-indicator .carousel-indicator-item {
+      display: inline-block;
+      position: relative;
+      width: 18px;
+      height: 18px;
+      margin-right: 1px;
+      cursor: pointer; }
+      .carousel .carousel-indicator .carousel-indicator-item::after, .carousel .carousel-indicator .carousel-indicator-item::before {
+        content: "";
+        display: block;
+        position: absolute;
+        border-radius: 50%; }
+      .carousel .carousel-indicator .carousel-indicator-item::after {
+        top: 4px;
+        left: 4px;
+        width: 6px;
+        height: 6px;
+        border: 2px solid #b9b3ba; }
+      .carousel .carousel-indicator .carousel-indicator-item.active::after {
+        background-color: #fff;
+        border: 2px solid #fff; }
+      .carousel .carousel-indicator .carousel-indicator-item.active::before {
+        top: 0;
+        left: 0;
+        width: 18px;
+        height: 18px;
+        background-color: rgba(255, 255, 255, 0.3); }
+
+.carousel .carousel-list {
+  width: 5310px;
+  height: 470px; }
+  .carousel .carousel-list .carousel-item {
+    float: left;
+    width: 590px;
+    height: 100%; }
+    .carousel .carousel-list .carousel-item.active {
+      z-index: 1; }
+    .carousel .carousel-list .carousel-item.carousel-lk {
+      display: block;
+      height: 100%; }
+
