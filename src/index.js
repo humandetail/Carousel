@@ -1,7 +1,10 @@
-import { Fade } from './classes/fade';
-import './assets/styles/fade.scss';
+// import { Fade as Carousel } from './classes/fade';
+// import './assets/styles/fade.scss';
 
-new Fade(jQuery, {
+import { Slide as Carousel } from './classes/slide';
+import './assets/styles/slide.scss';
+
+new Carousel(jQuery, {
   dom: '.J_carousel',
-  speed: 3000
+  speed: 2000
 });

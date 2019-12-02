@@ -1,0 +1,121 @@
+.carousel {
+  position: relative;
+  width: 590px;
+  height: 470px;
+  margin: 0 auto;
+  overflow: hidden;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  button {
+    outline: none;
+    border: none;
+  }
+
+  .carousel-control {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    width: 24px;
+    height: 40px;
+    margin-top: -20px;
+    background-color: rgba(0, 0, 0, .2);
+    background-size: 15px 15px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, .4);
+    }
+
+    &.carousel-control-prev {
+      left: 0;
+      background-image: url(/img/icons/prev.png);
+    }
+
+    &.carousel-control-next {
+      right: 0;
+      background-image: url(/img/icons/next.png);
+    }
+  }
+
+  .carousel-list {
+    width: 5310px;
+    height: 470px;
+
+    .carousel-item {
+      float: left;
+      width: 590px;
+      height: 100%;
+
+      &.active {
+        z-index: 1;
+      }
+
+      &.carousel-lk {
+        display: block;
+        height: 100%;
+      }
+    }
+  }
+
+  .carousel-indicator {
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+    padding: 5px 10px;
+    font-size: 0;
+    z-index: 2;
+
+    .carousel-indicator-item {
+			display: inline-block;
+			position: relative;
+			width: 18px;
+			height: 18px;
+      margin-right: 1px;
+      cursor: pointer;
+
+			&::after,
+			&::before {
+				content: "";
+				display: block;
+				position: absolute;
+				border-radius: 50%;
+			}
+
+			&::after {
+				top: 4px;
+				left: 4px;
+				width: 6px;
+				height: 6px;
+				border: 2px solid #b9b3ba;
+			}
+
+			&.active::after {
+				background-color: #fff;
+				border: 2px solid #fff;
+			}
+
+			&.active::before {
+				top: 0;
+				left: 0;
+				width: 18px;
+				height: 18px;
+				background-color: rgba(255, 255, 255, .3);
+			}
+    }
+  }
+}
